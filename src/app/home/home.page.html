@@ -14,7 +14,17 @@
   </ion-header>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <button ion-button full class="submit-button" (click)="listPairedDevices()">
+      <ion-icon name="refresh"></ion-icon>&nbsp;Refresh Bluetooth Devices</button>
+    <ion-row>
+      <ion-col>
+        <ion-list radio-group *ngIf="listToggle">
+          <ion-item *ngFor="let i of pairedList;let j=index">
+            <ion-label>{{i.name}}</ion-label>
+            <ion-radio value="{{j}}" ></ion-radio>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
   </div>
 </ion-content>
